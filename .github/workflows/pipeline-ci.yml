@@ -1,0 +1,24 @@
+name: CI Lab
+
+on:
+  pull_request:
+    branches: [master, release, develop]´
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Build application
+      run: |
+        # Build application #
+        echo "Build application"
+
+  lint-and-test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Simula Lint
+        run: echo "Rodando Lint... Ok"
+      - name: Simula Testes
+        run: echo "Rodando Testes... OK"
